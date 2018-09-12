@@ -1,0 +1,54 @@
+<div>
+    <div class='comments'>
+        <!--<input type="button" value="{{ label }}" ng-click="ShowHide()"/>-->
+        <form ng-hide="!currentUser">
+            <fieldset>
+                <!--<legend>
+                    {{currentUser}}'s comment
+                </legend>-->
+                <div>
+                    <label>
+                        Name:
+                        <input ng-model='currentUser' type='text' disabled>
+                    </label><br>
+                </div>
+                <div>
+                    <label>
+                        Comment:<br>
+                        <textarea ng-model='comment.text' rows="5" cols="40"></textarea>
+                    </label>
+                </div>
+                <div>
+                    <input class='button' ng-click='submit(comment)' type='submit' value='Submit'>
+                </div>
+            </fieldset>
+        </form>
+        <h3>
+            {{comments.length}} Comments
+        </h3>
+        <ul class="comments-wrapper">
+            <li ng-repeat='comment in comments'>
+                <div class='comment' ng-class='{approved: comment.approved}'>
+                    <ion-icon class="custom-contact" name="contact"></ion-icon>
+                    <span>
+                        {{comment.name}}
+                    </span>
+                    <p>
+                        {{comment.text}}
+                    </p>
+                    <div class="separation-line"></div>
+                    <div class="reply-content">
+                        <!--Reply section-->
+                        <ul ng-repeat="reply in comment.replies track by $index">
+                            <li><b>{{ currentUser}}' Reply :</b><br>{{reply}}</li>
+                        </ul>
+                        <textarea ng-model="reply" placeholder="Reply on this comment ..." rows="5" cols="40"></textarea><br>
+                        <ion-icon class="custom-undo" ng-click="insertReply(comment,reply)" name="undo"></ion-icon>
+                        <ion-icon class="custom-trash" ng-click='drop(comment)' name="trash"></ion-icon>
+                    </div>
+                </div>
+                <div class="separation-line"></div>
+            </li>
+        </ul>
+    </div>
+</div>

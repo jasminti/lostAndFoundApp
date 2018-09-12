@@ -1,0 +1,6 @@
+<h2>List of users:</h2><br>
+<div class="users-list" ng-repeat="user in users track by $index">
+    <label>Username:</label><span> {{ user.name }} </span><br>
+    <label>Email:</label><span> {{ user.email }} </span><br>
+    <div class="separation-line"></div>
+</div>
