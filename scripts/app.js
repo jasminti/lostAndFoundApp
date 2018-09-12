@@ -13,10 +13,13 @@ console.log( localData);
 console.log( localStorage.getItem('siteData'));
 header.innerHTML = localData.siteName;*/
 
+// what are you trying to do here?
 var users = '';
 localStorage.setItem('myDataKey', users);
 var data = localStorage.getItem('myDataKey');
 
+
+// these are your comments
 comments = [
     {
         name: 'Test',
@@ -29,6 +32,10 @@ comments = [
         approved: false
     }
 ];
+
+// these USED to be your users before you commented them out
+// do these have to come from localStorage?
+// be careful with globals, you should scope this to the controller
 /*users = [
     {
         name: 'John',

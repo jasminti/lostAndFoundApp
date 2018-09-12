@@ -5,9 +5,14 @@ app.controller ('CommentsCtrl', function ($scope, $rootScope) {
     console.log($rootScope.currentUser);
     $scope.hiden = false;
     $scope.label = 'Hide Angular';
+    // you see how the comments are passed to the $scope here?
+    // you should get them from localStorage
+    //
     $scope.comments = comments
 
     $scope.submit = function (comment) {
+        // this saves to the scope
+        // if you want to persist the data you should save to localStorage here
         $scope.comments.push({
             name: currentUser,
             text: comment.text,
