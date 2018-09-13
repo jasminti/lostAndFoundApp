@@ -1,21 +1,4 @@
-var app = angular.module('lostAndFoundApp', ['ngRoute']);
-
-/*var header = document.getElementsByTagName('h2'),
-    siteData = {
-        siteName: 'My Site',
-        siteDescription: 'Another JS Site'
-    },
-    localData;
-
-localStorage.setItem('siteData', JSON.stringify( siteData ));
-localData = JSON.parse( localStorage.getItem( 'siteData'));
-console.log( localData);
-console.log( localStorage.getItem('siteData'));
-header.innerHTML = localData.siteName;*/
-
-var users = '';
-localStorage.setItem('myDataKey', users);
-var data = localStorage.getItem('myDataKey');
+var app = angular.module('lostAndFoundApp', ['ngRoute', 'ngStorage']);
 
 comments = [
     {
@@ -29,7 +12,7 @@ comments = [
         approved: false
     }
 ];
-/*users = [
+users = [
     {
         name: 'John',
         email: 'john@aol.com',
@@ -45,7 +28,7 @@ comments = [
         email: 'jack@aol.com',
         password: 'jack'
     },
-];*/
+];
 currentUser = '';
 
 app.config(['$routeProvider', function($routeProvider) {

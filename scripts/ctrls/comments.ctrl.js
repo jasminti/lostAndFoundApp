@@ -1,11 +1,24 @@
-app = angular.module("lostAndFoundApp");
+var app = angular.module('lostAndFoundApp');
 
-app.controller ('CommentsCtrl', function ($scope, $rootScope) {
+app.controller ('CommentsCtrl', function ($scope, $rootScope, localStorageService) {
     $rootScope.currentUser = currentUser;
     console.log($rootScope.currentUser);
     $scope.hiden = false;
     $scope.label = 'Hide Angular';
-    $scope.comments = comments
+
+    /*localStorageService.set('property', 'oldValue');
+    $scope.unbind = localStorageService.bind($scope, 'property');
+    //Test Changes
+    $scope.update = function(val) {
+        $scope.property = val;
+        $timeout(function() {
+            alert("localStorage value: " + localStorageService.get('property'));
+        });
+    };*/
+    $scope.saveComm = function () {
+        $localStorage.comments = $scope.comments;
+    };
+    $scope.comments = $localStorage.comments;
 
     $scope.submit = function (comment) {
         $scope.comments.push({
