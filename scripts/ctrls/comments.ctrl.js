@@ -6,15 +6,6 @@ app.controller ('CommentsCtrl', function ($scope, $rootScope, localStorageServic
     $scope.hiden = false;
     $scope.label = 'Hide Angular';
 
-    /*localStorageService.set('property', 'oldValue');
-    $scope.unbind = localStorageService.bind($scope, 'property');
-    //Test Changes
-    $scope.update = function(val) {
-        $scope.property = val;
-        $timeout(function() {
-            alert("localStorage value: " + localStorageService.get('property'));
-        });
-    };*/
     $scope.saveComm = function () {
         $localStorage.comments = $scope.comments;
     };
