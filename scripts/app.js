@@ -1,6 +1,6 @@
 var app = angular.module('lostAndFoundApp', ['ngRoute', 'ngStorage']);
 
-comments = [
+/*comments = [
     {
         name: 'Test',
         text: 'hello world',
@@ -11,7 +11,7 @@ comments = [
         text: 'lorem ipsum',
         approved: false
     }
-];
+];*/
 users = [
     {
         name: 'John',
@@ -37,5 +37,6 @@ app.config(['$routeProvider', function($routeProvider) {
         .when('/signup', { templateUrl: 'views/signup.html', controller: 'signUpCtrl' })
         .when('/signin', { templateUrl: 'views/login.html', controller: 'signInCtrl'})
         .when('/home', { templateUrl: 'views/home.html', controller: 'homeCtrl'})
+        .when('/mistral', { templateUrl: 'views/mistral.html', controller: 'mistralCtrl'})
         .otherwise({ redirectTo: '/' });
 }]);

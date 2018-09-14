@@ -45,13 +45,14 @@
                         <textarea ng-model="reply" placeholder="Reply on this comment ..." rows="5" cols="40"></textarea><br>
                         <ion-icon class="custom-undo" ng-click="insertReply(comment,reply)" name="undo"></ion-icon>
                         <ion-icon class="custom-trash" ng-click='drop(comment)' name="trash"></ion-icon>
+
                     </div>
                 </div>
                 <div class="separation-line"></div>
-                <div>
-                   <button ng-click="saveComm()"></button>
-                </div>
             </li>
+            <div>
+                <button ng-click="saveComm()">Save Reply</button>
+            </div>
         </ul>
     </div>
 </div>

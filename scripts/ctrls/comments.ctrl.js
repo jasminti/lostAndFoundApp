@@ -1,6 +1,6 @@
 var app = angular.module('lostAndFoundApp');
 
-app.controller ('CommentsCtrl', function ($scope, $rootScope, localStorageService) {
+app.controller ('CommentsCtrl', function ($scope, $rootScope, $localStorage) {
     $rootScope.currentUser = currentUser;
     console.log($rootScope.currentUser);
     $scope.hiden = false;
@@ -10,6 +10,9 @@ app.controller ('CommentsCtrl', function ($scope, $rootScope, localStorageServic
         $localStorage.comments = $scope.comments;
     };
     $scope.comments = $localStorage.comments;
+    if($scope.comments === undefined) {
+        $scope.comments = [];
+    }
 
     $scope.submit = function (comment) {
         $scope.comments.push({
@@ -22,6 +25,9 @@ app.controller ('CommentsCtrl', function ($scope, $rootScope, localStorageServic
     };
 
     $scope.insertReply = function(comment, reply) {
+        if(comment.replies === undefined) {
+            comment.replies=[];
+        }
         comment.replies.push(reply)
     }
 
