@@ -1,18 +1,20 @@
-app = angular.module("lostAndFoundApp");
+var app = angular.module('lostAndFoundApp');
 
-app.controller ('CommentsCtrl', function ($scope, $rootScope) {
+app.controller ('CommentsCtrl', function ($scope, $rootScope, $localStorage) {
     $rootScope.currentUser = currentUser;
     console.log($rootScope.currentUser);
     $scope.hiden = false;
     $scope.label = 'Hide Angular';
-    // you see how the comments are passed to the $scope here?
-    // you should get them from localStorage
-    //
-    $scope.comments = comments
+
+    $scope.saveComm = function () {
+        $localStorage.comments = $scope.comments;
+    };
+    $scope.comments = $localStorage.comments;
+    if($scope.comments === undefined) {
+        $scope.comments = [];
+    }
 
     $scope.submit = function (comment) {
-        // this saves to the scope
-        // if you want to persist the data you should save to localStorage here
         $scope.comments.push({
             name: currentUser,
             text: comment.text,
@@ -23,6 +25,9 @@ app.controller ('CommentsCtrl', function ($scope, $rootScope) {
     };
 
     $scope.insertReply = function(comment, reply) {
+        if(comment.replies === undefined) {
+            comment.replies=[];
+        }
         comment.replies.push(reply)
     }
 

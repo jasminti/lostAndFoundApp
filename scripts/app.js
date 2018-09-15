@@ -1,26 +1,6 @@
-var app = angular.module('lostAndFoundApp', ['ngRoute']);
+var app = angular.module('lostAndFoundApp', ['ngRoute', 'ngStorage']);
 
-/*var header = document.getElementsByTagName('h2'),
-    siteData = {
-        siteName: 'My Site',
-        siteDescription: 'Another JS Site'
-    },
-    localData;
-
-localStorage.setItem('siteData', JSON.stringify( siteData ));
-localData = JSON.parse( localStorage.getItem( 'siteData'));
-console.log( localData);
-console.log( localStorage.getItem('siteData'));
-header.innerHTML = localData.siteName;*/
-
-// what are you trying to do here?
-var users = '';
-localStorage.setItem('myDataKey', users);
-var data = localStorage.getItem('myDataKey');
-
-
-// these are your comments
-comments = [
+/*comments = [
     {
         name: 'Test',
         text: 'hello world',
@@ -31,12 +11,8 @@ comments = [
         text: 'lorem ipsum',
         approved: false
     }
-];
-
-// these USED to be your users before you commented them out
-// do these have to come from localStorage?
-// be careful with globals, you should scope this to the controller
-/*users = [
+];*/
+users = [
     {
         name: 'John',
         email: 'john@aol.com',
@@ -52,7 +28,7 @@ comments = [
         email: 'jack@aol.com',
         password: 'jack'
     },
-];*/
+];
 currentUser = '';
 
 app.config(['$routeProvider', function($routeProvider) {
@@ -61,5 +37,6 @@ app.config(['$routeProvider', function($routeProvider) {
         .when('/signup', { templateUrl: 'views/signup.html', controller: 'signUpCtrl' })
         .when('/signin', { templateUrl: 'views/login.html', controller: 'signInCtrl'})
         .when('/home', { templateUrl: 'views/home.html', controller: 'homeCtrl'})
+        .when('/mistral', { templateUrl: 'views/mistral.html', controller: 'mistralCtrl'})
         .otherwise({ redirectTo: '/' });
 }]);
