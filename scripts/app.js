@@ -14,22 +14,28 @@ var app = angular.module('lostAndFoundApp', ['ngRoute', 'ngStorage']);
 ];*/
 users = [
     {
+        id: 1,
         name: 'John',
         email: 'john@aol.com',
-        password: 'john'
+        password: 'john',
+        role: 'admin'
     },
     {
+        id: 2,
         name: 'Bill',
         email: 'bill@aol.com',
-        password: 'bill'
+        password: 'bill',
+        role: 'user'
     },
     {
+        id: 3,
         name: 'Jack',
         email: 'jack@aol.com',
-        password: 'jack'
+        password: 'jack',
+        role: 'user'
     },
 ];
-currentUser = '';
+currentUser = {};
 
 app.config(['$routeProvider', function($routeProvider) {
     $routeProvider
@@ -38,5 +44,6 @@ app.config(['$routeProvider', function($routeProvider) {
         .when('/signin', { templateUrl: 'views/login.html', controller: 'signInCtrl'})
         .when('/home', { templateUrl: 'views/home.html', controller: 'homeCtrl'})
         .when('/mistral', { templateUrl: 'views/mistral.html', controller: 'mistralCtrl'})
+        .when('/user/:id', { templateUrl: 'views/user.html', controller: 'userCtrl'})
         .otherwise({ redirectTo: '/' });
 }]);

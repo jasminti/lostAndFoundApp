@@ -19,13 +19,14 @@
     <script src="scripts/ctrls/signup.ctrl.js"></script>
     <script src="scripts/ctrls/signin.ctrl.js"></script>
     <script src="scripts/ctrls/mistral.ctrl.js"></script>
+    <script src="scripts/ctrls/user.ctrl.js"></script>
 </head>
 <body>
     <div class="main-container">
         <div class="header">
             <h2>Lost And Found App</h2>
         </div>
-        <h3> {{currentUser}} </h3>
+        <h3> {{currentUser.name}} </h3>
         <div ng-view=""></div>
         <div class="btn-wrapper">
             <a href="#/home"><button>Users</button></a>

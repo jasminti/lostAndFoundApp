@@ -6,7 +6,7 @@ app.controller('signInCtrl', function ($scope, $location, $rootScope) {
             if(user.name===users[i].name) {
                 if(user.pass===users[i].password) {
                     console.log(users[i].password);
-                    $rootScope.currentUser = users[i].name
+                    $rootScope.currentUser = users[i];
                     currentUser = $rootScope.currentUser;
                     $location.path('/home')
                     return
