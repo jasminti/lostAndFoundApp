@@ -1,6 +1,16 @@
-<div>
-    <h1>Mistral Employee List</h1>
-    <div ng-repeat="emp in emps">
-        {{emp.name}}
+<div ng-show="currentUser.role === 'admin'" >
+    <h2>Mistral Employee List</h2>
+    <div style="float: right">
+        <a href="#/employee/0">Add New Employee</a>
     </div>
+    <br>
+    <ul class="employee-wrapper">
+        <li ng-repeat="emp in emps" class="employee-list">
+            {{emp.name}}
+            <span class="icon-wrapper">
+                <a href="#/employee/{{emp.id}}"><ion-icon name="create"></ion-icon></a>
+                <a href=""><ion-icon name="trash" ng-click="delEmp(emp)"></ion-icon></a>
+            </span>
+        </li>
+    </ul>
 </div>

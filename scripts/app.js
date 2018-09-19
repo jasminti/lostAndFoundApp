@@ -1,17 +1,5 @@
 var app = angular.module('lostAndFoundApp', ['ngRoute', 'ngStorage']);
 
-/*comments = [
-    {
-        name: 'Test',
-        text: 'hello world',
-        approved: true
-    },
-    {
-        name: 'randomUser',
-        text: 'lorem ipsum',
-        approved: false
-    }
-];*/
 users = [
     {
         id: 1,
@@ -45,5 +33,6 @@ app.config(['$routeProvider', function($routeProvider) {
         .when('/home', { templateUrl: 'views/home.html', controller: 'homeCtrl'})
         .when('/mistral', { templateUrl: 'views/mistral.html', controller: 'mistralCtrl'})
         .when('/user/:id', { templateUrl: 'views/user.html', controller: 'userCtrl'})
+        .when('/employee/:id', { templateUrl: 'views/employee.html', controller: 'employeeCtrl'})
         .otherwise({ redirectTo: '/' });
 }]);

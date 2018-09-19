@@ -94,6 +94,26 @@ fieldset {
 .comment span {
     font-weight: 700;
 }
+.employee-list{
+    font-weight: 700;
+    padding: 5px 10px;
+}
+.icon-wrapper{
+    color: #9e9e9e94;
+    float: right;
+    font-size: 18px;
+}
+.employee-wrapper {
+    list-style: none;
+    padding-left: 0;
+}
+.employee-wrapper li:nth-child(odd) {
+    background-color: #9e9e9e29;
+}
+.edit-employee {
+    font-weight: 700;
+}
+
 
 
 
