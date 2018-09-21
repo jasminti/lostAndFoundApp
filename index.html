@@ -21,11 +21,13 @@
     <script src="scripts/ctrls/mistral.ctrl.js"></script>
     <script src="scripts/ctrls/user.ctrl.js"></script>
     <script src="scripts/ctrls/employee.ctrl.js"></script>
+    <script src="scripts/services/dataService.js"></script>
+    <script src="scripts/ctrls/main.ctrl.js"></script>
 </head>
 <body>
     <div class="main-container">
-        <div class="header">
-            <h2>Lost And Found App</h2>
+        <div class="header" ng-controller="mainCtrl">
+            <h2 ng-click="selfLogin()">Lost And Found App</h2>
         </div>
         <h3> {{currentUser.name}} </h3>
         <div ng-view=""></div>
@@ -34,7 +36,7 @@
             <a href="#/signin"><button>Log In</button></a>
             <a href="#/signup"><button>Sign Up</button></a>
             <a href="#/comments"><button>Make A Post</button></a>
-            <a href="#/mistral">Employee List</a>
+            <a href="#/mistral"><button>Employee List</button></a>
         </div>
     </div>
 </body>

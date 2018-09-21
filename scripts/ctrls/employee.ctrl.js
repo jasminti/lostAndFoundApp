@@ -2,7 +2,7 @@ var app = angular.module('lostAndFoundApp')
 app.controller('employeeCtrl', function ($scope, $http, $routeParams, $location) {
     $scope.id = $routeParams.id;
     if( $scope.id == 0){
-        $scope.emp = {id: 0}
+        $scope.emp = {id: 0, active: true}
         console.log($routeParams.id)
     }
     else{
@@ -28,6 +28,7 @@ app.controller('employeeCtrl', function ($scope, $http, $routeParams, $location)
                 })
         }
         else{
+            var url = "http://www.teatar.org/api/people/" + $scope.id;
             $http.put(url, emp)
                 .then(function (response) {
                     $location.path('/mistral')

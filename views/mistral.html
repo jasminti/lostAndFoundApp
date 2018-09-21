@@ -1,7 +1,9 @@
-<div ng-show="currentUser.role === 'admin'" >
-    <h2>Mistral Employee List</h2>
-    <div style="float: right">
-        <a href="#/employee/0">Add New Employee</a>
+<div ng-show="currentUser.role === 'admin'">
+    <div style="float: left">
+        <h2>Mistral Employee List</h2>
+    </div>
+    <div class="add-employee-wrapper">
+        <a href="#/employee/0"><ion-icon name="person-add"></ion-icon></a>
     </div>
     <br>
     <ul class="employee-wrapper">
