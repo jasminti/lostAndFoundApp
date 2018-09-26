@@ -1,40 +1,27 @@
 var app = angular.module('lostAndFoundApp')
-app.controller('employeeCtrl', function ($scope, $http, $routeParams, $location) {
+app.controller('employeeCtrl', function ($scope, $http, $routeParams, $location, dataService) {
     $scope.id = $routeParams.id;
     if( $scope.id == 0){
         $scope.emp = {id: 0, active: true}
-        console.log($routeParams.id)
     }
     else{
-        var url = "http://www.teatar.org/api/people/" + $scope.id;
-        $http.defaults.headers.common.Authorization = "Bearer 1234567890";
-        $http.get(url)
-            .then(function (response) {
-                $scope.emp = response.data
-            },function (reason) {
-                console.log("greska u pristupu")
-            })
+        dataService.read("people", $scope.id, function (data) {
+            $scope.emp = data
+        })
     }
 
     $scope.saveEmp = function (emp) {
         if( emp.id == 0){
-            var url = "http://www.teatar.org/api/people/";
-            $http.post(url, emp)
-                .then(function (response) {
-                    $location.path('/mistral')
-                    console.log(response.data.id)
-                }, function (reason) {
-                    console.log("evo nesto nece")
-                })
+            dataService.insert("people", emp, function (data) {
+                console.log(data);
+                $location.path('/mistral')
+            })
         }
         else{
-            var url = "http://www.teatar.org/api/people/" + $scope.id;
-            $http.put(url, emp)
-                .then(function (response) {
-                    $location.path('/mistral')
-                }, function (reason) {
-                    console.log("evo nesto nece")
-                })
+           dataService.update("people", emp, emp.id, function (data) {
+               console.log(data);
+               $location.path('/mistral')
+           })
         }
     }
 })
